@@ -8,6 +8,11 @@ ENV PYTHONUNBUFFERED 1
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
+# Устанавливаем системные зависимости
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0
+
 # Копируем файл зависимостей и устанавливаем зависимости
 COPY requirements.txt /app/
 RUN pip install --upgrade pip

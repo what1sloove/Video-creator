@@ -27,6 +27,7 @@ iniconfig==2.0.0
 joblib==1.4.0
 kiwisolver==1.4.5
 Levenshtein==0.25.1
+opencv-python==4.8.1.78
 sqlparse==0.5.0
 threadpoolctl==3.4.0
 tqdm==4.66.2
