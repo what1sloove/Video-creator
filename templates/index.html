@@ -10,9 +10,6 @@
 </head>
 <body>
 <div class="container">
-    {% if file %}
-        <a href="{{ file.file.url }}" download="{{ file.file.url }}">Download</a>
-    {% endif %}
     <form action="/", enctype="multipart/form-data">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Enter message</label>
@@ -20,8 +17,10 @@
             <div id="emailHelp" class="form-text">The length of the sentence should not exceed 100 characters.</div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-
     </form>
+    {% if file %}
+        <a href="{{ file.file.url }}" download="{{ file.file.url }}">Download</a>
+    {% endif %}
 
 </div>
 </body>
