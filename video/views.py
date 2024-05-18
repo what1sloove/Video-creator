@@ -8,7 +8,6 @@ logger = logging.getLogger('main')
 
 
 def page(request):
-
     if request.GET:
         latest_video = Video.objects.last()
         context = {'file': latest_video}
