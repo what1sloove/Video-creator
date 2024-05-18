@@ -10,6 +10,8 @@ def page(request):
 
     if request.GET and len(request.GET.get('message').strip()) != 0:
         result = create_running_text_video(request.GET.get('message'))
-        Video.objects.create(title=result['title'], file=result['path'])
+        Video.objects.create(title=result['title'], message=result['message'], file=result['path'])
+    else:
+        create_running_text_video('Example')
 
     return render(request, 'index.html', context)

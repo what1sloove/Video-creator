@@ -52,7 +52,7 @@ def create_running_text_video(message: str) -> dict:
 
     # Закрытие объекта видеозаписи
     out.release()
-    return {'title': OUTPUT_FILENAME, 'path': f"videos/{OUTPUT_FILENAME}"}
+    return {'title': OUTPUT_FILENAME, 'message': message, 'path': f"videos/{OUTPUT_FILENAME}"}
 
 
 create_running_text_video("Привет")
