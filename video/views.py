@@ -8,14 +8,18 @@ logger = logging.getLogger('main')
 
 
 def page(request):
-    latest_video = Video.objects.last()
-    context = {'file': latest_video}
 
-    if request.GET and len(request.GET.get('message').strip()) != 0:
-        result = create_running_text_video(request.GET.get('message'))
-        logger.info(result['message'])
-        Video.objects.create(title=result['title'], message=result['message'], file=result['path'])
-    else:
-        create_running_text_video('Example')
+    if request.GET:
+        latest_video = Video.objects.last()
+        context = {'file': latest_video}
 
-    return render(request, 'index.html', context)
+        if len(request.GET.get('message').strip()) != 0:
+            result = create_running_text_video(request.GET.get('message'))
+            logger.info(result['message'])
+            Video.objects.create(title=result['title'], message=result['message'], file=result['path'])
+        else:
+            create_running_text_video('Example')
+
+        return render(request, 'index.html', context)
+
+    return render(request, 'index.html')
